@@ -1,6 +1,53 @@
 apiVersion: v1
 entries:
+  event-generator:
+  - apiVersion: v2
+    appVersion: 0.10.0
+    created: "2026-04-22T00:49:34.37890456Z"
+    description: A Helm chart used to deploy the event-generator in Kubernetes cluster.
+    digest: c22eb07c5876e67e6666c39f3adbc8beab1d70c2d0a14454cda36ad179b2fb3d
+    name: event-generator
+    type: application
+    urls:
+    - https://github.com/Funcan/charts/releases/download/event-generator-0.3.4/event-generator-0.3.4.tgz
+    version: 0.3.4
   falco:
+  - apiVersion: v2
+    appVersion: 0.43.1
+    created: "2026-04-22T00:49:34.578123807Z"
+    dependencies:
+    - condition: falcosidekick.enabled
+      name: falcosidekick
+      repository: https://falcosecurity.github.io/charts
+      version: 0.12.*
+    - condition: collectors.kubernetes.enabled
+      name: k8s-metacollector
+      repository: https://falcosecurity.github.io/charts
+      version: 0.1.*
+    - condition: responseActions.enabled
+      name: falco-talon
+      repository: https://falcosecurity.github.io/charts
+      version: 0.3.*
+    description: Falco
+    digest: 487a92b46b18a2d635b86d9bbfd3cd0881378e1c74b6a681a4c1fa835e2db47c
+    home: https://falco.org
+    icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/falco/horizontal/color/falco-horizontal-color.svg
+    keywords:
+    - monitoring
+    - security
+    - alerting
+    - metric
+    - troubleshooting
+    - run-time
+    maintainers:
+    - email: cncf-falco-dev@lists.cncf.io
+      name: The Falco Authors
+    name: falco
+    sources:
+    - https://github.com/falcosecurity/falco
+    urls:
+    - https://github.com/Funcan/charts/releases/download/falco-8.0.2/falco-8.0.2.tgz
+    version: 8.0.2
   - apiVersion: v1
     appVersion: 0.24.0
     created: "2020-07-17T16:03:29.964173596Z"
@@ -139,4 +186,66 @@ entries:
     urls:
     - https://github.com/falcosecurity/charts/releases/download/falco-exporter-0.3.0/falco-exporter-0.3.0.tgz
     version: 0.3.0
-generated: "2020-06-17T11:36:18.151554517+02:00"
+  falco-talon:
+  - apiVersion: v1
+    appVersion: 0.3.0
+    created: "2026-04-22T00:49:34.743435053Z"
+    description: React to the events from Falco
+    digest: 9e51cab3383cbb19f095de17dd83fe14e99ad6230aaf187e9d1e6e3470dd4e25
+    home: https://github.com/falcosecurity/falco-talon
+    keywords:
+    - falco
+    - monitoring
+    - security
+    - response-engine
+    maintainers:
+    - email: issif+github@gadz.org
+      name: Issif
+    - email: igoreulalio.ie@gmail.com
+      name: IgorEulalio
+    name: falco-talon
+    sources:
+    - https://github.com/falcosecurity/falco-talon
+    urls:
+    - https://github.com/Funcan/charts/releases/download/falco-talon-0.4.0/falco-talon-0.4.0.tgz
+    version: 0.4.0
+  falcosidekick:
+  - apiVersion: v1
+    appVersion: 2.31.1
+    created: "2026-04-22T00:49:34.92270244Z"
+    description: Connect Falco to your ecosystem
+    digest: 77c51bdf134c4f40e0724403a37700579c0ac12548bc26ccebc32d5be4a9ca20
+    home: https://github.com/falcosecurity/falcosidekick
+    icon: https://raw.githubusercontent.com/falcosecurity/falcosidekick/master/imgs/falcosidekick_color.png
+    keywords:
+    - monitoring
+    - security
+    - alerting
+    maintainers:
+    - email: cncf-falco-dev@lists.cncf.io
+      name: Issif
+    name: falcosidekick
+    sources:
+    - https://github.com/falcosecurity/falcosidekick
+    urls:
+    - https://github.com/Funcan/charts/releases/download/falcosidekick-0.13.1/falcosidekick-0.13.1.tgz
+    version: 0.13.1
+  k8s-metacollector:
+  - apiVersion: v2
+    appVersion: 0.1.2
+    created: "2026-04-22T00:49:35.090908511Z"
+    description: Install k8s-metacollector to fetch and distribute Kubernetes metadata
+      to Falco instances.
+    digest: 6fcb0d3e662b81ed598831efc465f465cbe0fa66224db5f32a6914dcd623c0a3
+    home: https://github.com/falcosecurity/k8s-metacollector
+    maintainers:
+    - email: cncf-falco-dev@lists.cncf.io
+      name: The Falco Authors
+    name: k8s-metacollector
+    sources:
+    - https://github.com/falcosecurity/k8s-metacollector
+    type: application
+    urls:
+    - https://github.com/Funcan/charts/releases/download/k8s-metacollector-0.3.0/k8s-metacollector-0.3.0.tgz
+    version: 0.3.0
+generated: "2026-04-22T00:49:35.09092912Z"
